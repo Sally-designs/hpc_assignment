@@ -1,0 +1,3 @@
+n split_part_*.fasta; do
+  echo -e "$file\t$(wc -l < "$file")" >> line_counts.txt
+doncd

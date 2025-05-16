@@ -1,0 +1,18 @@
+#!/bin/bash
+# combine_results.sh
+
+echo -e "File,Line Count,Total Nucleotides,A,T,C,G,GC_Content(%)" > final_summary.csv
+
+for file in split_part_*.fasta; do
+  fname=$(basename "$file")
+  lines=$(wc -l < "$file")
+  seq=$(grep -v '^>' "$file" | tr -d '\n' | tr '[:lower:]' '[:upper:]')
+  total=$(echo "$seq" | wc -c)
+  a=$(echo "$seq" | grep -o 'A' | wc -l)
+  t=$(echo "$seq" | grep -o 'T' | wc -l)
+  c=$(echo "$seq" | grep -o 'C' | wc -l)
+  g=$(echo "$seq" | grep -o 'G' | wc -l)
+  gc_content=$(awk -v gc="$((g + c))" -v total="$total" 'BEGIN {printf "%.2f", (gc/total)*100}')
+  echo "$fname,$lines,$total,$a,$t,$c,$g,$gc_content" >> final_summary.csv
+done
+cat final_summary.csv
