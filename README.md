@@ -12,6 +12,7 @@ This repository contains HPC exercises involving shell scripting, Python program
 - `docs/` – Screenshots and execution logs
 - `data/` – Input data and split files
 - `README.md` – Assignment overview and instructions
+- the scripts/,docs/ are within the results
 
 ## Collaborators
 
