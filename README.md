@@ -16,3 +16,4 @@ This repository contains HPC exercises involving shell scripting, Python program
 ## Collaborators
 
 - GitHub user **fredrickkkebaso** has been added as a collaborator.
+![Time difference](https://github.com/user-attachments/assets/5ec118a6-870f-4895-96ae-fba21438221c)
